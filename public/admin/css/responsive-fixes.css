@@ -1,0 +1,205 @@
+/* Custom responsive fixes for admin panel */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #343a40;
+    overflow-x: hidden;
+}
+
+#sidebar {
+    background-color: #343a40;
+    min-height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        z-index: 1050;
+        width: 250px;
+        height: 100vh;
+        transition: all 0.3s ease;
+        background-color: #343a40;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+    .page-content {
+        margin-left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #343a40;
+    }
+
+    .sidebar-toggle {
+        display: block !important;
+    }
+}
+
+@media (min-width: 992px) {
+    #sidebar {
+        position: fixed;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #343a40;
+        overflow-y: auto;
+    }
+
+    .page-content {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+        min-height: 100vh;
+        background-color: #343a40;
+    }
+
+    .sidebar-toggle {
+        display: none;
+    }
+}/* Simple Admin Dropdown Styling */
+.admin-link {
+     color: #fff !important;
+     text-decoration: none;
+     padding: 0.5rem 1rem !important;
+     cursor: pointer;
+}
+
+.admin-link:hover {
+     color: #f8f9fa !important;
+     text-decoration: none;
+}
+
+.simple-dropdown {
+     min-width: 120px;
+     padding: 0;
+     border: none;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+     background-color: #343a40;
+     position: absolute;
+     top: 100%;
+     right: 0;
+     z-index: 1000;
+     display: none;
+}
+
+.simple-dropdown.show {
+     display: block;
+}
+
+.logout-simple {
+     color: #fff !important;
+     padding: 0.75rem 1rem;
+     border: none;
+     background: none;
+     width: 100%;
+     text-align: left;
+     transition: background-color 0.2s ease;
+     font-weight: 500;
+     cursor: pointer;
+}
+
+.logout-simple:hover {
+     background-color: rgba(220, 53, 69, 0.1) !important;
+     color: #dc3545 !important;
+}
+
+/* Ensure dashboard content fits properly */
+.page-content {
+    min-height: 100vh;
+    padding-top: 0;
+    background-color: #343a40;
+}
+
+/* Header styling */
+.header {
+    background-color: #495057;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Main content wrapper */
+.container-fluid {
+    padding: 20px;
+    background-color: #343a40;
+}
+
+/* Remove any potential white backgrounds */
+body * {
+    box-sizing: border-box;
+}
+
+/* Ensure no white space gaps */
+.page-header {
+    background-color: #343a40;
+    margin-bottom: 0;
+    padding: 20px 0;
+}
+
+/* Fix any section gaps */
+section {
+    background-color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove gaps from rows and columns */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-md-3, .col-sm-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Dashboard blocks styling - keep these with original colors */
+.statistic-block.block {
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Fix chart containers */
+.chart-container {
+     position: relative;
+     height: 300px;
+     width: 100%;
+}
+
+/* Responsive tables */
+.table-responsive {
+     overflow-x: auto;
+}
+
+/* Dashboard cards responsive */
+.statistic-block {
+     margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+     .statistic-block {
+          margin-bottom: 15px;
+     }
+
+     .page-header h2 {
+          font-size: 1.25rem;
+     }
+
+     .simple-dropdown {
+          min-width: 100px;
+     }
+
+     .page-content {
+          padding-top: 0;
+     }
+
+     .container-fluid {
+          padding: 15px;
+     }
+}
