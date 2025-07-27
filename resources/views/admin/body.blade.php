@@ -2,8 +2,20 @@
           <div class="page-content">
                <div class="page-header">
                     <div class="container-fluid">
-                         <h2 class="h5 no-margin-bottom" style="color: white;">Hotel Management Dashboard</h2>
-                         <p style="color: #ccc; margin-top: 5px;">Welcome to your hotel administration panel</p>
+                         <div class="d-flex justify-content-between align-items-center">
+                              <div>
+                                   <h2 class="h5 no-margin-bottom" style="color: white;">Hotel Management Dashboard</h2>
+                                   <p style="color: #ccc; margin-top: 5px;">Welcome to your hotel administration panel</p>
+                              </div>
+                              <div class="quick-actions">
+                                   <a href="{{url('create_room')}}" class="btn btn-success btn-sm me-2">
+                                        <i class="icon-plus"></i> Add Room
+                                   </a>
+                                   <a href="{{url('view_room')}}" class="btn btn-primary btn-sm">
+                                        <i class="icon-grid"></i> View Rooms
+                                   </a>
+                              </div>
+                         </div>
                     </div>
                </div>
                <section class="no-padding-top no-padding-bottom">

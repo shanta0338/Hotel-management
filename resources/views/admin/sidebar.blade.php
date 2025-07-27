@@ -12,10 +12,11 @@
      </div>
      <!-- Sidebar Navigation Menus--><span class="heading">Admin Panel</span>
      <ul class="list-unstyled">
-          <li class="active"><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Hotel Rooms </a>
-               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{url('create_room')}}"> Add room</a></li>
-                    <li><a href="{{url('view_room')}}">View rooms</a></li>
+          <li class="{{ request()->is('create_room') || request()->is('view_room') ? 'active' : '' }}">
+               <a href="#exampledropdownDropdown" aria-expanded="true" data-toggle="collapse"> <i class="icon-windows"></i>Hotel Rooms </a>
+               <ul id="exampledropdownDropdown" class="collapse list-unstyled {{ request()->is('create_room') || request()->is('view_room') ? 'show' : '' }}">
+                    <li class="{{ request()->is('create_room') ? 'active' : '' }}"><a href="{{url('create_room')}}"> <i class="icon-plus"></i> Add Room</a></li>
+                    <li class="{{ request()->is('view_room') ? 'active' : '' }}"><a href="{{url('view_room')}}"> <i class="icon-grid"></i> View Rooms</a></li>
                </ul>
           </li>
      </ul>
