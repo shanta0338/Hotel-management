@@ -1,75 +1,139 @@
           <!-- Sidebar Navigation end-->
-          <div class="page-content">
-               <div class="page-header">
+          <div class="page-content" style="padding: 20px;">
+               <div class="page-header" style="margin-bottom: 30px;">
                     <div class="container-fluid">
-                         <div class="d-flex justify-content-between align-items-center">
+                         <div class="d-flex justify-content-between align-items-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
                               <div>
-                                   <h2 class="h5 no-margin-bottom" style="color: white;">Hotel Management Dashboard</h2>
-                                   <p style="color: #ccc; margin-top: 5px;">Welcome to your hotel administration panel</p>
+                                   <h2 class="h5 no-margin-bottom" style="color: white; font-weight: 700; font-size: 1.8rem; margin-bottom: 5px;">Hotel Management Dashboard</h2>
+                                   <p style="color: #e0e6ff; margin: 0; font-size: 1.1rem; font-weight: 500;">Welcome to your hotel administration panel</p>
                               </div>
                               <div class="quick-actions">
-                                   <a href="{{url('create_room')}}" class="btn btn-success btn-sm me-2">
+                                   <a href="{{url('create_room')}}" class="btn btn-success btn-sm me-2" style="border-radius: 20px; padding: 10px 20px; font-weight: 600; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3); margin-right: 10px;">
                                         <i class="icon-plus"></i> Add Room
                                    </a>
-                                   <a href="{{url('view_room')}}" class="btn btn-primary btn-sm">
+                                   <a href="{{url('view_room')}}" class="btn btn-primary btn-sm" style="border-radius: 20px; padding: 10px 20px; font-weight: 600; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);">
                                         <i class="icon-grid"></i> View Rooms
                                    </a>
                               </div>
                          </div>
                     </div>
                </div>
-               <section class="no-padding-top no-padding-bottom">
+               <section class="no-padding-top no-padding-bottom" style="margin-bottom: 30px;">
                     <div class="container-fluid">
-                         <div class="row">
-                              <div class="col-md-3 col-sm-6">
-                                   <div class="statistic-block block">
+                         <div class="row" style="gap: 20px 0;">
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
                                         <div class="progress-details d-flex align-items-end justify-content-between">
                                              <div class="title">
-                                                  <div class="icon"><i class="icon-home"></i></div><strong>Total Rooms</strong>
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-home" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Total Rooms</strong>
                                              </div>
-                                             <div class="number dashtext-1">{{ $stats['total_rooms'] ?? 0 }}</div>
+                                             <div class="number dashtext-1" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['total_rooms'] ?? 0 }}</div>
                                         </div>
-                                        <div class="progress progress-template">
-                                             <div role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: 100%; border-radius: 10px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
                                         </div>
                                    </div>
                               </div>
-                              <div class="col-md-3 col-sm-6">
-                                   <div class="statistic-block block">
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
                                         <div class="progress-details d-flex align-items-end justify-content-between">
                                              <div class="title">
-                                                  <div class="icon"><i class="icon-check"></i></div><strong>Available Rooms</strong>
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-check" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Available Rooms</strong>
                                              </div>
-                                             <div class="number dashtext-2">{{ $stats['available_rooms'] ?? 0 }}</div>
+                                             <div class="number dashtext-2" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['available_rooms'] ?? 0 }}</div>
                                         </div>
-                                        <div class="progress progress-template">
-                                             <div role="progressbar" style="width: {{ $stats['total_rooms'] > 0 ? ($stats['available_rooms'] / $stats['total_rooms']) * 100 : 0 }}%" aria-valuenow="{{ $stats['available_rooms'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_rooms'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-2"></div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: {{ $stats['total_rooms'] > 0 ? ($stats['available_rooms'] / $stats['total_rooms']) * 100 : 0 }}%; border-radius: 10px;" aria-valuenow="{{ $stats['available_rooms'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_rooms'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-2"></div>
                                         </div>
                                    </div>
                               </div>
-                              <div class="col-md-3 col-sm-6">
-                                   <div class="statistic-block block">
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
                                         <div class="progress-details d-flex align-items-end justify-content-between">
                                              <div class="title">
-                                                  <div class="icon"><i class="icon-user-1"></i></div><strong>Occupied Rooms</strong>
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-user-1" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Occupied Rooms</strong>
                                              </div>
-                                             <div class="number dashtext-3">{{ $stats['occupied_rooms'] ?? 0 }}</div>
+                                             <div class="number dashtext-3" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['occupied_rooms'] ?? 0 }}</div>
                                         </div>
-                                        <div class="progress progress-template">
-                                             <div role="progressbar" style="width: {{ $stats['total_rooms'] > 0 ? ($stats['occupied_rooms'] / $stats['total_rooms']) * 100 : 0 }}%" aria-valuenow="{{ $stats['occupied_rooms'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_rooms'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-3"></div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: {{ $stats['total_rooms'] > 0 ? ($stats['occupied_rooms'] / $stats['total_rooms']) * 100 : 0 }}%; border-radius: 10px;" aria-valuenow="{{ $stats['occupied_rooms'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_rooms'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-3"></div>
                                         </div>
                                    </div>
                               </div>
-                              <div class="col-md-3 col-sm-6">
-                                   <div class="statistic-block block">
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
                                         <div class="progress-details d-flex align-items-end justify-content-between">
                                              <div class="title">
-                                                  <div class="icon"><i class="icon-users"></i></div><strong>Total Users</strong>
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-users" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Total Users</strong>
                                              </div>
-                                             <div class="number dashtext-4">{{ $stats['total_users'] ?? 0 }}</div>
+                                             <div class="number dashtext-4" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['total_users'] ?? 0 }}</div>
                                         </div>
-                                        <div class="progress progress-template">
-                                             <div role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: 85%; border-radius: 10px;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         
+                         <!-- Booking Statistics Section -->
+                         <div class="row" style="gap: 20px 0; margin-top: 30px;">
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <div class="progress-details d-flex align-items-end justify-content-between">
+                                             <div class="title">
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-calendar" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Total Bookings</strong>
+                                             </div>
+                                             <div class="number dashtext-1" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['total_bookings'] ?? 0 }}</div>
+                                        </div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: 100%; border-radius: 10px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <div class="progress-details d-flex align-items-end justify-content-between">
+                                             <div class="title">
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-clock" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Pending Bookings</strong>
+                                             </div>
+                                             <div class="number dashtext-2" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['pending_bookings'] ?? 0 }}</div>
+                                        </div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: {{ $stats['total_bookings'] > 0 ? ($stats['pending_bookings'] / $stats['total_bookings']) * 100 : 0 }}%; border-radius: 10px;" aria-valuenow="{{ $stats['pending_bookings'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_bookings'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-2"></div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <div class="progress-details d-flex align-items-end justify-content-between">
+                                             <div class="title">
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-check" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Approved Bookings</strong>
+                                             </div>
+                                             <div class="number dashtext-3" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['approved_bookings'] ?? 0 }}</div>
+                                        </div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: {{ $stats['total_bookings'] > 0 ? ($stats['approved_bookings'] / $stats['total_bookings']) * 100 : 0 }}%; border-radius: 10px;" aria-valuenow="{{ $stats['approved_bookings'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_bookings'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-3"></div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                                   <div class="statistic-block block" style="border-radius: 15px; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease; padding: 25px;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <div class="progress-details d-flex align-items-end justify-content-between">
+                                             <div class="title">
+                                                  <div class="icon" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 10px;"><i class="icon-close" style="color: white; font-size: 1.5rem;"></i></div>
+                                                  <strong style="color: white; font-size: 1.1rem;">Rejected Bookings</strong>
+                                             </div>
+                                             <div class="number dashtext-4" style="color: white; font-size: 2.5rem; font-weight: 700;">{{ $stats['rejected_bookings'] ?? 0 }}</div>
+                                        </div>
+                                        <div class="progress progress-template" style="margin-top: 15px; height: 6px; border-radius: 10px;">
+                                             <div role="progressbar" style="width: {{ $stats['total_bookings'] > 0 ? ($stats['rejected_bookings'] / $stats['total_bookings']) * 100 : 0 }}%; border-radius: 10px;" aria-valuenow="{{ $stats['rejected_bookings'] ?? 0 }}" aria-valuemin="0" aria-valuemax="{{ $stats['total_bookings'] ?? 1 }}" class="progress-bar progress-bar-template dashbg-4"></div>
                                         </div>
                                    </div>
                               </div>
@@ -92,9 +156,9 @@
                                                   </a>
                                              </div>
                                              <div class="col-md-3 col-sm-6 mb-3">
-                                                  <button class="btn btn-success btn-block" style="padding: 15px;">
-                                                       <i class="icon-calendar"></i> Manage Bookings
-                                                  </button>
+                                                  <a href="{{ route('admin.bookings') }}" class="btn btn-success btn-block" style="padding: 15px;">
+                                                       <i class="icon-calendar"></i> View Bookings
+                                                  </a>
                                              </div>
                                              <div class="col-md-3 col-sm-6 mb-3">
                                                   <button class="btn btn-warning btn-block" style="padding: 15px;">
@@ -135,6 +199,54 @@
                                                                  </span>
                                                             </td>
                                                             <td>{{ $room->created_at->diffForHumans() }}</td>
+                                                       </tr>
+                                                       @endforeach
+                                                  </tbody>
+                                             </table>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         @endif
+                         
+                         <!-- Recent Bookings Section -->
+                         @if(isset($stats['recent_bookings']) && $stats['recent_bookings']->count() > 0)
+                         <div class="row" style="margin-top: 30px;">
+                              <div class="col-12">
+                                   <div class="block" style="background: #495057; padding: 20px; border-radius: 10px;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                             <h3 style="color: white; margin: 0;">Recent Bookings</h3>
+                                             <a href="{{ route('admin.bookings') }}" class="btn btn-primary btn-sm" style="border-radius: 20px; padding: 8px 20px;">
+                                                  <i class="icon-calendar"></i> View All Bookings
+                                             </a>
+                                        </div>
+                                        <div class="table-responsive">
+                                             <table class="table table-dark">
+                                                  <thead>
+                                                       <tr>
+                                                            <th>Guest Name</th>
+                                                            <th>Room</th>
+                                                            <th>Check-in</th>
+                                                            <th>Check-out</th>
+                                                            <th>Status</th>
+                                                            <th>Total</th>
+                                                            <th>Booked</th>
+                                                       </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                       @foreach($stats['recent_bookings'] as $booking)
+                                                       <tr>
+                                                            <td>{{ $booking->guest_name }}</td>
+                                                            <td>{{ $booking->room->room_title ?? 'N/A' }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($booking->check_in)->format('M d, Y') }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($booking->check_out)->format('M d, Y') }}</td>
+                                                            <td>
+                                                                 <span class="badge {{ $booking->status == 'approved' ? 'badge-success' : ($booking->status == 'rejected' ? 'badge-danger' : 'badge-warning') }}">
+                                                                      {{ ucfirst($booking->status) }}
+                                                                 </span>
+                                                            </td>
+                                                            <td>${{ number_format($booking->total_price, 2) }}</td>
+                                                            <td>{{ $booking->created_at->diffForHumans() }}</td>
                                                        </tr>
                                                        @endforeach
                                                   </tbody>

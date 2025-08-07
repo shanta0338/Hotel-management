@@ -43,8 +43,17 @@ class FortifyServiceProvider extends ServiceProvider
             {
                 if (Auth::check()) {
                     $user = Auth::user();
+                    
+                    // Regenerate session to ensure security
+                    $request->session()->regenerate();
+                    
                     if ($user->usertype === 'admin') {
+                        // Set a flag to remember admin is logged in
+                        session(['admin_logged_in' => true]);
                         return redirect('/view_room');
+                    } else {
+                        // Regular user
+                        session(['user_logged_in' => true]);
                     }
                 }
                 return redirect()->intended('/home');

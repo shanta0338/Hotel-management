@@ -19,5 +19,15 @@
                     <li class="{{ request()->is('view_room') ? 'active' : '' }}"><a href="{{url('view_room')}}"> <i class="icon-grid"></i> View Rooms</a></li>
                </ul>
           </li>
+          <li class="{{ request()->is('admin/contacts*') ? 'active' : '' }}">
+               <a href="{{ route('admin.contacts') }}"> <i class="icon-email"></i>Contact Messages 
+                    @php
+                        $newContactsCount = \App\Models\Contact::where('status', 'new')->count();
+                    @endphp
+                    @if($newContactsCount > 0)
+                        <span class="badge badge-danger ml-2">{{ $newContactsCount }}</span>
+                    @endif
+               </a>
+          </li>
      </ul>
 </nav>

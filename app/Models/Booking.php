@@ -14,16 +14,16 @@ class Booking extends Model
         'phone',
         'check_in',
         'check_out',
-        'nights',
-        'total_price',
-        'status',
         'special_requests',
+        'total_price',
+        'nights',
+        'status'
     ];
 
     protected $casts = [
         'check_in' => 'date',
         'check_out' => 'date',
-        'total_price' => 'decimal:2',
+        'total_price' => 'decimal:2'
     ];
 
     public function room(): BelongsTo

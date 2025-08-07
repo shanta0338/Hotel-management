@@ -29,10 +29,10 @@
       @include('home.our_room')
       <!-- end our_room -->
       <!-- gallery -->
-      @include('home.gallery')
+      @include('home.gallery_section')
       <!-- end gallery -->
       <!-- blog -->
-      @include('home.blog')
+      @include('home.blog_section')
       <!-- end blog -->
       <!--  contact -->
       @include('home.contact')

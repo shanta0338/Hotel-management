@@ -1,3 +1,115 @@
+<style>
+    .our_room {
+        padding: 60px 0;
+        background: #f8f9fa;
+    }
+    
+    .our_room .titlepage h2 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .our_room .titlepage p {
+        font-size: 18px;
+        color: #666;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .room {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .room:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .room_img img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .room:hover .room_img img {
+        transform: scale(1.05);
+    }
+    
+    .bed_room {
+        padding: 25px;
+    }
+    
+    .bed_room h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .bed_room p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .price {
+        font-size: 20px !important;
+        font-weight: bold !important;
+        color: #f1c232 !important;
+    }
+    
+    .room-type {
+        background: linear-gradient(135deg, #3498db, #2980b9) !important;
+        color: white !important;
+        padding: 5px 12px !important;
+        border-radius: 15px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+    }
+    
+    .btn {
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 12px 20px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .room-details {
+        margin-top: 20px;
+    }
+    
+    .room-details > div:first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .room-details > div:nth-child(2) {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .room-details > div:nth-child(2) span {
+        margin-right: 20px;
+    }
+</style>
+
 <div class="our_room">
     <div class="container">
         <div class="row">
@@ -40,9 +152,11 @@
                                         <span style="margin-left: 15px;"><i class="fa fa-wifi"></i> Free WiFi</span>
                                     @endif
                                 </div>
-                                <button class="btn btn-primary" style="width: 100%; margin-top: 10px; background: #e74c3c; border: none;">
-                                    Book Now
-                                </button>
+                                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                    <a href="{{ route('room.details', $room->id) }}" class="btn btn-info" style="width: 100%; background: #17a2b8; border: none; text-decoration: none; color: white; display: inline-block; text-align: center; padding: 12px 16px; border-radius: 4px;">
+                                        View Details
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

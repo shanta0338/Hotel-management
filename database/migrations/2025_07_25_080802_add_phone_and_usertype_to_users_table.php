@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone')->nullable()->after('email');
-            $table->string('usertype')->default('user')->after('phone');
+            // $table->string('phone')->nullable()->after('email'); // Removed to prevent duplicate column error
+            // $table->string('usertype')->default('user')->after('email'); // Removed to prevent duplicate column error
         });
     }
 
@@ -23,7 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['phone', 'usertype']);
+            // $table->dropColumn(['phone', 'usertype']);
+            // $table->dropColumn(['usertype']);
         });
     }
 };

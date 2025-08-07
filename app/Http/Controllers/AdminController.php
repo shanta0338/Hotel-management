@@ -7,7 +7,6 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-
 class AdminController extends Controller
 {
     public function index()
@@ -17,21 +16,8 @@ class AdminController extends Controller
             if ($usertype == 'user') {
                 return view('home.index');
             } else if ($usertype == 'admin') {
-                // Get admin dashboard statistics
-                $stats = [
-                    'total_rooms' => Room::count(),
-                    'available_rooms' => Room::where('status', 'available')->count(),
-                    'occupied_rooms' => Room::where('status', 'occupied')->count(),
-                    'maintenance_rooms' => Room::where('status', 'maintenance')->count(),
-                    'total_users' => User::count(),
-                    'admin_users' => User::where('usertype', 'admin')->count(),
-                    'regular_users' => User::where('usertype', 'user')->count(),
-                    'total_capacity' => Room::sum('capacity'),
-                    'average_price' => Room::avg('price'),
-                    'recent_rooms' => Room::orderBy('created_at', 'desc')->limit(5)->get(),
-                ];
-                
-                return view('admin.index', compact('stats'));
+                // Redirect admin users directly to view rooms page
+                return redirect()->route('view_room');
             } else {
                 return redirect()->back();
             }

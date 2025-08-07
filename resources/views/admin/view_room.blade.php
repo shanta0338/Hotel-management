@@ -92,6 +92,7 @@
                     </div>
                     @endif
 
+
                     <h1 style="text-align: center; color: white; padding-bottom: 20px;">All Rooms</h1>
 
                     <!-- Room Statistics -->

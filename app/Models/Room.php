@@ -33,6 +33,18 @@ class Room extends Model
         'price' => 'decimal:2',
     ];
 
+    /**
+     * Default attribute values.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'room_type' => 'standard',
+        'capacity' => 2,
+        'wifi' => true,
+        'status' => 'available',
+    ];
+
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class);
